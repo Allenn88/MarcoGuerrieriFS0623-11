@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Esercizio Lista</title>
+</head>
+<body>
+    <form action="">
+         <label for="inserimento">Scrivi qui:</label>
+        <input type="text" name="testo" id="testo">
+        <input type="button" value="rimuovi lista" id="rimuovi" onclick="eliminalista"><br>
+        <input type="button" value="Inserisci nella lista" id="insert" name="insert"><br> 
+        <p><a href="#" onclick="evidenzia()"><label type="text" name="listaspesa" id="listaspesa"></label></a></p>
+
+        
+
+    </form>
+    <script>
+        function eliminalista(){
+            const reset = document.getElementById("listadellaspesa")
+            reset.remove(reset.innerText)
+        }
+        function evidenzia(){
+            const testocolorato = document.getElementsByTagName("a")
+            for (let i= 0; i < testocolorato.length; i++){
+                testocolorato[i].style.backgroundColor="#FEFF08"
+            }
+        }
+        function aggiungiallalista(){
+            const elemento = document.createElement("option")
+            elemento.innerText = document.getElementById("testo").value
+            const contenitore = document.querySelector("#listaspesa")
+            contenitore.appendChild(elemento)
+        }
+        const pulsante = document.querySelector("#insert")
+        pulsante.addEventListener("click", aggiungiallalista)
+    </script>
+</body>
+</html>
